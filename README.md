@@ -11,6 +11,7 @@
 - [파일 구조](#파일-구조file_folder)
 - [파일 설명](#파일-설명bookmark_tabs)
 - [흐름도](#흐름도ocean)
+- [고민했던점 및 궁금했던점](#고민했던점 및 궁금했던점interrobang)
 
 <br><br>
 
@@ -25,6 +26,7 @@
 | in Github | [@newJunsung](https://github.com/newJunsung) | [@JJong](https://github.com/shlim0) |
 | in SeSAC | 뉴준성 | 쫑 |
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 실행 화면:desktop_computer:	
@@ -41,16 +43,19 @@
 - 과일 재고 수정 완료 화면
 ![Simulator Screenshot - iPhone 15 Pro - 2023-09-22 at 13 51 58](https://github.com/newJunsung/ios-juice-maker/assets/46235301/d69b8305-a70a-4fc7-81a0-027c12ef4159)
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 실행 영상:clapper:	
 https://github.com/newJunsung/ios-juice-maker/assets/46235301/630e7754-8fef-406b-a06c-a5bade4ecbe9
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 스토리보드:clipboard:	
 <img width="1345" alt="image" src="https://github.com/newJunsung/ios-juice-maker/assets/46235301/89aa834f-2f42-44bb-bc2f-b59f25588d9e">
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 파일 구조:file_folder: 
@@ -83,6 +88,7 @@ class View {
 }
 ```
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 파일 설명:bookmark_tabs:	
@@ -100,6 +106,7 @@ class View {
       - JuiceType: 쥬스 종류를 정의합니다. 또한, 쥬스 종류에 따라 소모되는 과일과 개수를 정의합니다.
    - View
 
+[목차로 돌아가기](#목차)
 <br><br>
 
 ## 흐름도:ocean:
@@ -144,3 +151,9 @@ Note over FruitStore: 수량의 변화
 Controller ->> FruitStore: 증가(감소)된 수량 확인
 Controller ->> View: 수량 적용
 ```
+
+[목차로 돌아가기](#목차)
+<br><br>
+
+## 고민했던점 및 궁금했던점:interrobang:	
+
