@@ -11,7 +11,7 @@
 - [파일 구조](#파일-구조file_folder)
 - [파일 설명](#파일-설명bookmark_tabs)
 - [흐름도](#흐름도ocean)
-- [고민했던점 및 궁금했던점](#고민했던점 및 궁금했던점interrobang)
+- [고민했던점 및 궁금했던점](#고민했던점-및-궁금했던점interrobang)
 
 <br><br>
 
@@ -156,4 +156,8 @@ Controller ->> View: 수량 적용
 <br><br>
 
 ## 고민했던점 및 궁금했던점:interrobang:	
+[STEP 1 PR](https://github.com/tasty-code/ios-juice-maker/pull/43)
 
+[STEP 2 PR](https://github.com/tasty-code/ios-juice-maker/pull/56)
+
+[STEP 3 PR](https://github.com/tasty-code/ios-juice-maker/pull/64)
