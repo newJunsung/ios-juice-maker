@@ -15,7 +15,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.backgroundColor = .lightGray
+        setNavigationBarBackgroundColor()
         setTagOfStepper()
         setEventActionOfStepper()
     }
@@ -34,7 +34,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
         }
     }
     
-    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+    @IBAction private func stepperValueChanged(_ sender: UIStepper) {
         let newFruitCount = Int(sender.value)
         guard let fruitType = FruitType(rawValue: sender.tag),
               let fruitCount = FruitStore.shared.fruitCounts[fruitType] else {
@@ -50,7 +50,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
         }
     }
     
-    @IBAction func touchUpCloseButton(_ sender: UIButton) {
+    @IBAction private func touchUpCloseButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     

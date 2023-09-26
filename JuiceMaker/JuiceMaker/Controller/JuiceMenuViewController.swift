@@ -11,11 +11,14 @@ class JuiceMenuViewController: UIViewController, FruitShowable {
     
     @IBOutlet private var fruitsCountLabels: [UILabel]!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setNavigationBarBackgroundColor()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.backgroundColor = .lightGray
-
         for fruitType in FruitType.allCases {
             guard let fruitCount = FruitStore.shared.fruitCounts[fruitType] else {
                 return
@@ -25,7 +28,7 @@ class JuiceMenuViewController: UIViewController, FruitShowable {
         }
     }
     
-    @IBAction func juiceButtonPressed(_ sender: UIButton) {
+    @IBAction private func juiceButtonPressed(_ sender: UIButton) {
         guard let juiceSubstring = sender.titleLabel?.text?.split(separator: " ")[0],
         let juiceType = JuiceType(rawValue: String(juiceSubstring)) else {
             return
@@ -39,7 +42,7 @@ class JuiceMenuViewController: UIViewController, FruitShowable {
         }
     }
     
-    @IBAction func modifyInvertoryPressed(_ sender: Any) {
+    @IBAction private func modifyInvertoryPressed(_ sender: Any) {
         guard let fruitInventoryViewController = storyboard?.instantiateViewController(identifier: "FruitInventoryViewController") else {
             return
         }
