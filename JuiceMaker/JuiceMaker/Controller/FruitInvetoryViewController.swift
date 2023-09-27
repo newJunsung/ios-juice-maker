@@ -15,6 +15,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNavigationBarBackgroundColor()
         setTagOfStepper()
         setEventActionOfStepper()
@@ -23,15 +24,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        for fruitType in FruitType.allCases {
-            guard let fruitCount = FruitStore.shared.fruitCounts[fruitType] else {
-                return
-            }
-            
-            let fruit = Fruit(fruitType, fruitCount)
-            show(fruit, on: fruitsCountLabels)
-            show(fruit, on: fruitsCountSteppers)
-        }
+        setCount(on: fruitsCountLabels, fruitsCountSteppers)
     }
     
     @IBAction private func stepperValueChanged(_ sender: UIStepper) {
@@ -44,7 +37,7 @@ class FruitInventoryViewController: UIViewController, FruitShowable {
             let fruit = Fruit(fruitType, newFruitCount - fruitCount)
             try juiceMaker.update(fruit)
             
-            show(Fruit(fruitType, newFruitCount), on: fruitsCountLabels)
+            setCount(of: Fruit(fruitType, newFruitCount), on: fruitsCountLabels)
         } catch {
             return
         }
