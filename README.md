@@ -11,6 +11,7 @@
 - [파일 구조](#파일-구조file_folder)
 - [파일 설명](#파일-설명bookmark_tabs)
 - [흐름도](#흐름도ocean)
+- [클래스 다이어그램](#클래스-다이어그램pencil)
 - [고민했던점 및 궁금했던점](#고민했던점-및-궁금했던점interrobang)
 
 <br><br>
@@ -160,9 +161,98 @@ Controller ->> View: 수량 적용
 [목차로 돌아가기](#목차)
 <br><br>
 
+## 클래스 다이어그램:pencil:
+```mermaid
+classDiagram
+
+class FruitShowable {
+	<<interface>>
+	~ setCount(fruit: Fruit, FruitLabels: [UILabel])
+	~ setCount(fruit: Fruit, FruitSteppers: [UIStepper])
+	~ setCount(UIComponents: [UIView]...)
+}
+
+class FruitType {
+  <<enumeration>>
+  ~ strawberry
+  ~ banana
+  ~ pineapple
+  ~ kiwi
+  ~ mango
+}
+
+class JuiceType {
+  <<enumeration>>
+  ~ strawberryJuice
+  ~ bananaJuice
+  ~ kiwiJuice
+  ~ strawberrydBananaJuice
+  ~ mangoJuice
+  ~ mangoKiwiJuice
+
+  + ingerdients(self) [Fruit]
+}
+
+class Fruit {
+  <<typealias>>
+  fruitType: FruitType
+  count: Int
+}
+
+class JuiceMaker {
+  ~ make(juice: JuiceType)
+  ~ update(fruit: Fruit)
+}
+
+class FruitStore {
+	<<singleton>>
+	- shared: FruitStore
+  - fruitCounts: [FruitType: Int]
+
+  ~ update(fruit: Fruit, operator)
+  ~ update(fruits: [Fruit], operator)
+  - applyCount(fruit: Fruit)
+  - getCalculationCount(fruitCount: Int) Int 
+  - getCalculationCounts(fruits: [Fruit], operator) [Fruit]
+}
+
+class JuiceMenuViewController {
+  - juiceMaker: JuiceMaker
+  - fruitsCountLabels: [UILabel]
+  ~ viewDidLoad()
+  ~ viewWillAppear()
+  - order(menu: JuiceType)
+}
+
+class FruitInventoryViewController {
+  - juiceMaker: JuiceMaker
+  - fruitsCountLabels: [UILabel]
+  - fuirtsCountSteppers: [UIStepper]
+  ~ viewDidLoad()
+  ~ viewWillAppear()
+}
+
+FruitShowable <|.. FruitInventoryViewController
+FruitShowable <|.. JuiceMenuViewController
+FruitInventoryViewController -- JuiceType
+JuiceMenuViewController --  JuiceType
+JuiceType --> JuiceMaker
+FruitInventoryViewController ..> FruitStore
+JuiceMenuViewController ..> FruitStore
+JuiceMaker .. FruitType 
+FruitType ..> FruitStore
+FruitInventoryViewController .. FruitType
+```
+
+[목차로 돌아가기](#목차)
+<br><br>
+
 ## 고민했던점 및 궁금했던점:interrobang:	
 [STEP 1 PR](https://github.com/tasty-code/ios-juice-maker/pull/43)
 
 [STEP 2 PR](https://github.com/tasty-code/ios-juice-maker/pull/56)
 
 [STEP 3 PR](https://github.com/tasty-code/ios-juice-maker/pull/64)
+
+[목차로 돌아가기](#목차)
+<br><br>
