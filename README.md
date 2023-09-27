@@ -62,6 +62,11 @@ https://github.com/newJunsung/ios-juice-maker/assets/46235301/630e7754-8fef-406b
 ```mermaid
 classDiagram
 
+class Extensions {
+  UIColor+Extension.swift
+  UIViewController+Extension.swift
+}
+
 class Protocols {
     FruitShowable.swift
 }
